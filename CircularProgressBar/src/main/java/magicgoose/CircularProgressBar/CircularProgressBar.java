@@ -1,4 +1,4 @@
-package magicgoose.CircularProgressBar;
+package magicgoose.circularprogressbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -57,17 +57,21 @@ public class CircularProgressBar extends View {
     private String text = "";
     private String[] splitText = {};
 
-    /**
-     * The constructor for the CircularProgressBar
-     *
-     * @param context
-     * @param attrs
-     */
     public CircularProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         parseAttributes(context.obtainStyledAttributes(attrs,
                 R.styleable.ProgressWheel));
+    }
+
+    public CircularProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        parseAttributes(context.obtainStyledAttributes(attrs,
+                R.styleable.ProgressWheel, defStyleAttr, 0));
+    }
+
+    public CircularProgressBar(Context context) {
+        super(context);
     }
 
     //----------------------------------
