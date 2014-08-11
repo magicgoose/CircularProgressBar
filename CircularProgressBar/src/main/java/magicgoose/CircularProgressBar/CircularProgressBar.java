@@ -2,11 +2,8 @@ package magicgoose.circularprogressbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import android.graphics.*;
 import android.graphics.Paint.Style;
-import android.graphics.RectF;
-import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -37,6 +34,8 @@ public class CircularProgressBar extends View {
     private int rimColor = 0xAADDDDDD;
     private int textColor = 0xFF000000;
 
+    private Typeface textTypeface;
+
     //Paints
     private Paint barPaint = new Paint();
     private Paint circlePaint = new Paint();
@@ -56,6 +55,7 @@ public class CircularProgressBar extends View {
     //Other
     private String text = "";
     private String[] splitText = {};
+
 
     public CircularProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -166,6 +166,7 @@ public class CircularProgressBar extends View {
         textPaint.setStyle(Style.FILL);
         textPaint.setAntiAlias(true);
         textPaint.setTextSize(textSize);
+        textPaint.setTypeface(textTypeface);
 
         contourPaint.setColor(contourColor);
         contourPaint.setAntiAlias(true);
@@ -410,5 +411,9 @@ public class CircularProgressBar extends View {
 
     public void setRimWidth(int rimWidth) {
         this.rimWidth = rimWidth;
+    }
+
+    public void setTextTypeface(Typeface textTypeface) {
+        this.textTypeface = textTypeface;
     }
 }
